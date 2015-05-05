@@ -10,12 +10,19 @@
 
 class ParkingLot {
 public:
-    ParkingLot(int nBucket);
+    ParkingLot(int nTotal, int nUsed);
     bool Park(const Car &car);
+    int UnPark(const Car &car);
+    int getAvailableParkingSpaceCount()const;
+
 
 private:
-    int _nBucket;
+    bool IsFull()const;
 
+
+private:
+    int _nTotal;
+    int _nUsed;
 };
 
 
