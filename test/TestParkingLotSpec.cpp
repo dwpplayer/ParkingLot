@@ -6,6 +6,7 @@
 #include "TestParkingLotSpec.h"
 #include "../src/ParkingLot.h"
 #include "../src/Car.h"
+#include "../src/ParkingBoy.h"
 
 void TestParkingLotSpec::TearDown() {
     Test::TearDown();
@@ -20,26 +21,25 @@ void TestParkingLotSpec::SetUp() {
 TEST_F(TestParkingLotSpec, ShouldParkingCarWhenTheParkinglotExistSpace)
 {
     ParkingLot parkingLot(1, 0);
-    Car car;
-    ASSERT_TRUE(parkingLot.Park(car));
+    ASSERT_TRUE(parkingLot.Park(std::make_shared<Car>("1")));
 }
 
 TEST_F(TestParkingLotSpec, ShouldParkingCarWhenTheParkinglotIsFull)
 {
     ParkingLot parkingLot(5, 5);
-    Car car;
-    ASSERT_FALSE(parkingLot.Park(car));
+    ASSERT_FALSE(parkingLot.Park(std::make_shared<Car>("1")));
 }
 
 TEST_F(TestParkingLotSpec, ShouldIncrementalParkingLotNumbeWhenUnparkOneCar)
 {
     //given
-    ParkingLot parkingLot(2, 1);
-    Car car;
+    ParkingLot parkingLot(2, 0);
+
+    parkingLot.Park(std::make_shared<Car>("1"));
     int nParkingSpaceCountBefore = parkingLot.getAvailableParkingSpaceCount();
 
     //when
-    parkingLot.UnPark(car);
+    parkingLot.UnPark(std::make_shared<Car>("1"));
 
     //then
     ASSERT_EQ(1, parkingLot.getAvailableParkingSpaceCount() - nParkingSpaceCountBefore);

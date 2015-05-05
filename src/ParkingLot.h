@@ -6,21 +6,22 @@
 #define FIZZBUZZWHIZZ_PARKINGLOT_H
 
 
+#include <vector>
 #include "Car.h"
 
 class ParkingLot {
 public:
     ParkingLot(int nTotal, int nUsed);
-    bool Park(const Car &car);
-    int UnPark(const Car &car);
+    bool Park(std::shared_ptr<Car> car);
+    int UnPark(std::shared_ptr<Car> car);
     int getAvailableParkingSpaceCount()const;
-
-
-private:
     bool IsFull()const;
+    bool FindCar(std::shared_ptr<Car> car)const;
 
 
 private:
+    typedef std::vector<std::shared_ptr<Car>> VecCar;
+    VecCar _cars;
     int _nTotal;
     int _nUsed;
 };

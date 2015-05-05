@@ -6,8 +6,15 @@
 #define FIZZBUZZWHIZZ_CAR_H
 
 
-class Car {
+#include <string>
 
+class Car {
+public:
+    Car(const std::string &id);
+
+    bool operator == (const Car &otherCar);
+private:
+    std::string _id;
 };
 
 
