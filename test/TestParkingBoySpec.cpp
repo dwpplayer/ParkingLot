@@ -15,8 +15,8 @@ void TestParkingBoySpec::TearDown() {
 
 void TestParkingBoySpec::SetUp() {
     Test::SetUp();
-    _parkingLotSmall = std::make_shared<ParkingLot>(1, 0);
-    _parkingLotBig = std::make_shared<ParkingLot>(10, 0);
+    _parkingLotSmall = std::make_shared<ParkingLot>(1);
+    _parkingLotBig = std::make_shared<ParkingLot>(10);
     _parkingLotBoy = std::make_shared<ParkingBoy>();
 
     _parkingLotBoy->Add(_parkingLotSmall);

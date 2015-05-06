@@ -11,7 +11,7 @@
 
 class ParkingLot {
 public:
-    ParkingLot(int nTotal, int nUsed);
+    ParkingLot(int nTotal);
     bool Park(std::shared_ptr<Car> car);
     int UnPark(std::shared_ptr<Car> car);
     int getAvailableParkingSpaceCount()const;
@@ -23,7 +23,6 @@ private:
     typedef std::vector<std::shared_ptr<Car>> VecCar;
     VecCar _cars;
     int _nTotal;
-    int _nUsed;
 };
 
 

@@ -8,7 +8,6 @@ bool ParkingLot::Park(std::shared_ptr<Car> car) {
     if(!IsFull())
     {
         _cars.push_back(car);
-        ++_nUsed;
         return true;
     }
     return false;
@@ -16,16 +15,15 @@ bool ParkingLot::Park(std::shared_ptr<Car> car) {
 
 bool ParkingLot::IsFull()const { return getAvailableParkingSpaceCount() <= 0; }
 
-int ParkingLot::getAvailableParkingSpaceCount()const { return _nTotal - _nUsed; }
+int ParkingLot::getAvailableParkingSpaceCount()const { return _nTotal - _cars.size(); }
 
 
 int ParkingLot::UnPark(std::shared_ptr<Car> car ) {
-    if(_nUsed > 0)
+    if(_cars.size() > 0)
     {
         for(VecCar::iterator it = _cars.begin(); it != _cars.end(); ++it) {
             if (**it == *car) {
                 _cars.erase(it);
-                --_nUsed;
                 return true;
             }
         }
@@ -33,7 +31,7 @@ int ParkingLot::UnPark(std::shared_ptr<Car> car ) {
     return false;
 }
 
-ParkingLot::ParkingLot(int nTotal, int nUsed) : _nTotal(nTotal), _nUsed(nUsed) {
+ParkingLot::ParkingLot(int nTotal) : _nTotal(nTotal){
 
 }
 
