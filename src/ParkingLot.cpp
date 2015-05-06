@@ -15,7 +15,7 @@ bool ParkingLot::Park(std::shared_ptr<Car> car) {
 
 bool ParkingLot::IsFull()const { return getAvailableParkingSpaceCount() <= 0; }
 
-int ParkingLot::getAvailableParkingSpaceCount()const { return _nTotal - _cars.size(); }
+int ParkingLot::getAvailableParkingSpaceCount()const { return _nTotal - _cars.size() - _nPlaceHolderSpace; }
 
 
 int ParkingLot::UnPark(std::shared_ptr<Car> car ) {
@@ -31,7 +31,7 @@ int ParkingLot::UnPark(std::shared_ptr<Car> car ) {
     return false;
 }
 
-ParkingLot::ParkingLot(int nTotal) : _nTotal(nTotal){
+ParkingLot::ParkingLot(int nTotal, int nPlaceHoldSpace) : _nTotal(nTotal), _nPlaceHolderSpace(nPlaceHoldSpace){
 
 }
 

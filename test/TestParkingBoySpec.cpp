@@ -38,3 +38,9 @@ TEST_F(TestParkingBoySpec, ShouldParkCarInMultipleParkingLotsWithSequenceOrder)
     ASSERT_TRUE(_parkingLotSmall->FindCar(std::make_shared<Car>("1")));
     ASSERT_TRUE(_parkingLotBig->FindCar(std::make_shared<Car>("2")));
 }
+
+TEST_F(TestParkingBoySpec, ShouldOutputParkinglotStatus)
+{
+    _parkingLotBoy->Park(std::make_shared<Car>("1"));
+    ASSERT_EQ("B 10 11\n\tP 0 1\n\tP 10 10\n", _parkingLotBoy->ToString());
+}
