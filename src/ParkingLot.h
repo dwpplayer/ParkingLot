@@ -15,6 +15,7 @@ public:
     bool Park(std::shared_ptr<Car> car);
     int UnPark(std::shared_ptr<Car> car);
     int getAvailableParkingSpaceCount()const;
+    int getTotalParkingSpace()const;
     bool IsFull()const;
     bool FindCar(std::shared_ptr<Car> car)const;
 

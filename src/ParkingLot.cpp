@@ -43,3 +43,7 @@ bool ParkingLot::FindCar(std::shared_ptr<Car> car)const {
     }
     return false;
 }
+
+int ParkingLot::getTotalParkingSpace() const {
+    return _nTotal;
+}
