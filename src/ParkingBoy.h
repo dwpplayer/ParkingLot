@@ -16,9 +16,9 @@ class ParkingBoy {
 
 public:
     bool Add(std::shared_ptr<ParkingLot> aParkingLot);
-    bool Park(std::shared_ptr<Car> car);
+    virtual bool Park(std::shared_ptr<Car> car);
 
-private:
+protected:
     typedef std::vector<std::shared_ptr<ParkingLot>> VecParkingLot;
     VecParkingLot _parkingLots;
 
