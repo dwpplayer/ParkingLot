@@ -44,16 +44,35 @@ bool ParkingManager::Remove(std::shared_ptr<ParkingBoy> parkingBoy) {
 std::string ParkingManager::ToString(const std::string &prefix) const {
 
     std::ostringstream os;
+    os << GetTotalParkingLotInfo();
+    os << GetSelfParkingLotInfo();
+    os << GetParkingBoysInfo();
+
+    return os.str();
+}
+
+std::string ParkingManager::GetTotalParkingLotInfo()const {
+    std::ostringstream os;
     os << "M " << GetAvailableParkingSpace() << " " << GetAllParkingSpace() << "\n";
-    std::for_each(_parkingLots.begin(), _parkingLots.end(), [&](std::shared_ptr<ParkingLot> parkingLot)
-    {
-        os << "\tP " << parkingLot->getAvailableParkingSpaceCount() << " " << parkingLot->getTotalParkingSpace() << "\n";
-    });
-    std::for_each(_parkingBoys.begin(), _parkingBoys.end(), [&](std::shared_ptr<ParkingBoy> parkingBoy)
+    return os.str();
+}
+
+std::string ParkingManager::GetParkingBoysInfo()const {
+    std::ostringstream os;
+    for_each(_parkingBoys.begin(), _parkingBoys.end(), [&](std::__1::shared_ptr<ParkingBoy> parkingBoy)
     {
         os << parkingBoy->ToString("\t");
     });
+    return os.str();
+}
 
+std::string ParkingManager::GetSelfParkingLotInfo()const {
+    std::ostringstream os;
+
+    for_each(_parkingLots.begin(), _parkingLots.end(), [&](std::__1::shared_ptr<ParkingLot> parkingLot)
+    {
+        os << "\tP " << parkingLot->getAvailableParkingSpaceCount() << " " << parkingLot->getTotalParkingSpace() << "\n";
+    });
     return os.str();
 }
 

@@ -20,9 +20,14 @@ protected:
     virtual int GetAvailableParkingSpace()const;
     virtual int GetAllParkingSpace()const;
 
+private:
+    std::string GetSelfParkingLotInfo()const;
+    std::string GetParkingBoysInfo()const;
+    std::string GetTotalParkingLotInfo()const;
 
 private:
     typedef std::list<std::shared_ptr<ParkingBoy>> ListParkingBoy;
+
     ListParkingBoy _parkingBoys;
 };
 
