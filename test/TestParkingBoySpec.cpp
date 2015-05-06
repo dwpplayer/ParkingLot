@@ -2,7 +2,6 @@
 // Created by twer  on 5/5/15.
 //
 
-#include <memory>
 #include "TestParkingBoySpec.h"
 #include "../src/ParkingLot.h"
 #include "../src/ParkingBoy.h"
@@ -17,7 +16,7 @@ void TestParkingBoySpec::SetUp() {
     Test::SetUp();
     _parkingLotSmall = std::make_shared<ParkingLot>(1);
     _parkingLotBig = std::make_shared<ParkingLot>(10);
-    _parkingLotBoy = std::make_shared<ParkingBoy>();
+    _parkingLotBoy = std::make_shared<ParkingBoy>("XXX");
 
     _parkingLotBoy->Add(_parkingLotSmall);
     _parkingLotBoy->Add(_parkingLotBig);
@@ -25,7 +24,7 @@ void TestParkingBoySpec::SetUp() {
 
 TEST_F(TestParkingBoySpec, ShouldAddOneMoreParkingLotForAPrkingBoy)
 {
-    ParkingBoy parkingBoy;
+    ParkingBoy parkingBoy("xxx");
     parkingBoy.Add(_parkingLotSmall);
 
     ASSERT_TRUE(parkingBoy.Add(_parkingLotBig));

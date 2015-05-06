@@ -20,15 +20,15 @@ void TestSmartParkingBoySpec::SetUp() {
 
 TEST_F(TestSmartParkingBoySpec, ShouldParkCarInParkingLotWithMoreParkingSpace)
 {
-    std::shared_ptr<SmartParkingBoy> _parkingLotBoy;
+    std::shared_ptr<SmartParkingBoy> parkingLotBoy;
 
-    _parkingLotBoy = std::make_shared<SmartParkingBoy>();
+    parkingLotBoy = std::make_shared<SmartParkingBoy>("XXX");
 
-    _parkingLotBoy->Add(_parkingLotSmall);
-    _parkingLotBoy->Add(_parkingLotBig);
+    parkingLotBoy->Add(_parkingLotSmall);
+    parkingLotBoy->Add(_parkingLotBig);
 
-    _parkingLotBoy->Park(std::make_shared<Car>("1"));
-    _parkingLotBoy->Park(std::make_shared<Car>("2"));
+    parkingLotBoy->Park(std::make_shared<Car>("1"));
+    parkingLotBoy->Park(std::make_shared<Car>("2"));
 
     ASSERT_TRUE(_parkingLotBig->FindCar(std::make_shared<Car>("1")));
     ASSERT_TRUE(_parkingLotBig->FindCar(std::make_shared<Car>("2")));

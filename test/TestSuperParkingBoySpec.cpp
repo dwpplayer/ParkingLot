@@ -19,7 +19,7 @@ TEST_F(TestSuperParkingBoySpec, ShouldParkCarInTheParkinglotWithLargestSpaceRati
     std::shared_ptr<ParkingLot> parkingLotSmall = std::make_shared<ParkingLot>(11);
     std::shared_ptr<ParkingLot> parkingLotBig = std::make_shared<ParkingLot>(10);
 
-    std::shared_ptr<SuperParkingBoy> superParkingBoy = std::make_shared<SuperParkingBoy>();
+    std::shared_ptr<SuperParkingBoy> superParkingBoy = std::make_shared<SuperParkingBoy>("YYY");
     superParkingBoy->Add(parkingLotSmall);
     superParkingBoy->Add(parkingLotBig);
 

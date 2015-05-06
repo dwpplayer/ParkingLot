@@ -24,3 +24,10 @@ bool ParkingBoy::Park(std::shared_ptr<Car> car)
     return false;
 }
 
+bool ParkingBoy::operator==(const ParkingBoy &otherParkingBoy) {
+    return _id == otherParkingBoy._id;
+}
+
+ParkingBoy::ParkingBoy(const std::string &id): _id(id) {
+
+}

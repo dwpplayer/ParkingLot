@@ -10,6 +10,7 @@
 
 class SuperParkingBoy : public ParkingBoy {
 public:
+    SuperParkingBoy(const std::string &id);
     virtual bool Park(std::shared_ptr<Car> car);
 };
 

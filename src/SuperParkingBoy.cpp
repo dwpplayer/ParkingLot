@@ -28,3 +28,7 @@ bool SuperParkingBoy::Park(std::shared_ptr<Car> car) {
 
     return (*itFind)->Park(car);
 }
+
+SuperParkingBoy::SuperParkingBoy(const std::string &id): ParkingBoy(id) {
+
+}

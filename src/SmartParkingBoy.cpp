@@ -5,6 +5,10 @@
 #include "SmartParkingBoy.h"
 
 
+SmartParkingBoy::SmartParkingBoy(const std::string &id): ParkingBoy(id) {
+
+}
+
 bool SmartParkingBoy::Park(std::shared_ptr<Car> car) {
 
     if(0 == _parkingLots.size())
