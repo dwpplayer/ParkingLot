@@ -51,7 +51,7 @@ TEST_F(TestParkingManagerSpec, ShouldParkCarDelegate)
 {
     std::shared_ptr<ParkingLot> parkingLot = std::make_shared<ParkingLot>(1);
 
-    parkingBoy->Add(parkingLot);
+    parkingBoy->AddParkingLot(parkingLot);
     parkingManager->AddParkingBoy(parkingBoy);
 
     ASSERT_TRUE(parkingManager->Park(std::make_shared<Car>("1")));
@@ -62,7 +62,7 @@ TEST_F(TestParkingManagerSpec, ShouldParkCarDirectly)
 {
     std::shared_ptr<ParkingLot> parkingLot = std::make_shared<ParkingLot>(1);
 
-    parkingManager->Add(parkingLot);
+    parkingManager->AddParkingLot(parkingLot);
     parkingManager->AddParkingBoy(parkingBoy);
 
     ASSERT_TRUE(parkingManager->Park(std::make_shared<Car>("1")));

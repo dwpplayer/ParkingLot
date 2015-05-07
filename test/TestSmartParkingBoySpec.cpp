@@ -24,8 +24,8 @@ TEST_F(TestSmartParkingBoySpec, ShouldParkCarInParkingLotWithMoreParkingSpace)
 
     parkingLotBoy = std::make_shared<SmartParkingBoy>("XXX");
 
-    parkingLotBoy->Add(_parkingLotSmall);
-    parkingLotBoy->Add(_parkingLotBig);
+    parkingLotBoy->AddParkingLot(_parkingLotSmall);
+    parkingLotBoy->AddParkingLot(_parkingLotBig);
 
     parkingLotBoy->Park(std::make_shared<Car>("1"));
     parkingLotBoy->Park(std::make_shared<Car>("2"));

@@ -38,14 +38,14 @@ TEST_F(TestParkingDirectSpec, ShouldVerifyOutAsExpected)
     std::shared_ptr<ParkingLot> parkingLot3 = std::make_shared<ParkingLot>(3, 3);
     std::shared_ptr<ParkingLot> parkingLot4 = std::make_shared<ParkingLot>(2, 1);
 
-    parkingBoy->Add(parkingLot2);
-    parkingBoy2->Add(parkingLot3);
-    parkingBoy2->Add(parkingLot4);
+    parkingBoy->AddParkingLot(parkingLot2);
+    parkingBoy2->AddParkingLot(parkingLot3);
+    parkingBoy2->AddParkingLot(parkingLot4);
 
 
     parkingManager->AddParkingBoy(parkingBoy);
     parkingManager->AddParkingBoy(parkingBoy2);
-    parkingManager->Add(parkingLot);
+    parkingManager->AddParkingLot(parkingLot);
 
     std::shared_ptr<ParkingDirect> parkingDirect = std::make_shared<ParkingDirect>();
 

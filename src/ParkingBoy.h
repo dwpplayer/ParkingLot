@@ -16,14 +16,16 @@ class ParkingBoy {
 
 public:
     ParkingBoy(const std::string &id);
-    bool Add(std::shared_ptr<ParkingLot> aParkingLot);
+    bool AddParkingLot(std::shared_ptr<ParkingLot> aParkingLot);
     virtual bool Park(std::shared_ptr<Car> car);
     bool operator == (const ParkingBoy &otherParkingBoy);
-    std::vector<std::string> Statistic()const;
     virtual std::string ToString(const std::string &prefix = "")const;
 
     virtual int GetAvailableParkingSpace()const;
     virtual int GetAllParkingSpace()const;
+
+private:
+    std::vector<std::string> Statistic()const;
 
 protected:
     typedef std::vector<std::shared_ptr<ParkingLot>> VecParkingLot;

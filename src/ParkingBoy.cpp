@@ -6,7 +6,7 @@
 #include "ParkingBoy.h"
 #include "ParkingLot.h"
 
-bool ParkingBoy::Add(std::shared_ptr<ParkingLot> aParkingLot) {
+bool ParkingBoy::AddParkingLot(std::shared_ptr<ParkingLot> aParkingLot) {
     _parkingLots.push_back(aParkingLot);
     return true;
 }
@@ -52,7 +52,7 @@ std::vector<std::string> ParkingBoy::Statistic() const {
 
 int ParkingBoy::GetAvailableParkingSpace()const  {
     int nAailableParkingSpace = 0;
-    for_each(_parkingLots.begin(), _parkingLots.end(), [&](std::__1::shared_ptr<ParkingLot> parkingLot)
+    for_each(_parkingLots.begin(), _parkingLots.end(), [&](std::shared_ptr<ParkingLot> parkingLot)
     {
         nAailableParkingSpace += parkingLot->getAvailableParkingSpaceCount();
     });

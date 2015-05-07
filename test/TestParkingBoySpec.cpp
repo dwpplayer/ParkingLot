@@ -18,16 +18,16 @@ void TestParkingBoySpec::SetUp() {
     _parkingLotBig = std::make_shared<ParkingLot>(10);
     _parkingLotBoy = std::make_shared<ParkingBoy>("XXX");
 
-    _parkingLotBoy->Add(_parkingLotSmall);
-    _parkingLotBoy->Add(_parkingLotBig);
+    _parkingLotBoy->AddParkingLot(_parkingLotSmall);
+    _parkingLotBoy->AddParkingLot(_parkingLotBig);
 }
 
 TEST_F(TestParkingBoySpec, ShouldAddOneMoreParkingLotForAPrkingBoy)
 {
     ParkingBoy parkingBoy("xxx");
-    parkingBoy.Add(_parkingLotSmall);
+    parkingBoy.AddParkingLot(_parkingLotSmall);
 
-    ASSERT_TRUE(parkingBoy.Add(_parkingLotBig));
+    ASSERT_TRUE(parkingBoy.AddParkingLot(_parkingLotBig));
 }
 
 TEST_F(TestParkingBoySpec, ShouldParkCarInMultipleParkingLotsWithSequenceOrder)
