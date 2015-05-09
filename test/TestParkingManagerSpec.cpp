@@ -24,14 +24,14 @@ void TestParkingManagerSpec::TearDown() {
 
 
 
-TEST_F(TestParkingManagerSpec, ShouldAddParkingBoys)
+TEST_F(TestParkingManagerSpec, should_be_able_to_add_parkingboys_to_a_parking_manager)
 {
     ASSERT_TRUE(parkingManager->AddParkingBoy(std::dynamic_pointer_cast<ParkingBoy>(parkingBoy)));
     ASSERT_TRUE(parkingManager->AddParkingBoy(std::dynamic_pointer_cast<ParkingBoy>(smartParkingBoy)));
     ASSERT_TRUE(parkingManager->AddParkingBoy(std::dynamic_pointer_cast<ParkingBoy>(superParkingBoy)));
 }
 
-TEST_F(TestParkingManagerSpec, ShouldRemoveParkingBoys)
+TEST_F(TestParkingManagerSpec, should_be_able_to_remove_parkingboys_from_a_parking_manager)
 {
     parkingManager->AddParkingBoy(std::dynamic_pointer_cast<ParkingBoy>(parkingBoy));
     parkingManager->AddParkingBoy(std::dynamic_pointer_cast<ParkingBoy>(smartParkingBoy));
@@ -40,14 +40,7 @@ TEST_F(TestParkingManagerSpec, ShouldRemoveParkingBoys)
     ASSERT_TRUE(parkingManager->Remove(std::dynamic_pointer_cast<ParkingBoy>(smartParkingBoy)));
 }
 
-TEST_F(TestParkingManagerSpec, ShouldReturnFalseWhenTheRemoveParkingBoyNotUnderTheParkingManager)
-{
-    std::shared_ptr<SuperParkingBoy> superParkingBoy2 = std::make_shared<SuperParkingBoy>("SuperParkingBoy2");
-
-    ASSERT_FALSE(parkingManager->Remove(std::dynamic_pointer_cast<ParkingBoy>(superParkingBoy2)));
-}
-
-TEST_F(TestParkingManagerSpec, ShouldParkCarDelegate)
+TEST_F(TestParkingManagerSpec, should_be_able_to_park_car_with_delegate_mode_for_a_parking_manager)
 {
     std::shared_ptr<ParkingLot> parkingLot = std::make_shared<ParkingLot>(1);
 
@@ -58,7 +51,7 @@ TEST_F(TestParkingManagerSpec, ShouldParkCarDelegate)
 }
 
 
-TEST_F(TestParkingManagerSpec, ShouldParkCarDirectly)
+TEST_F(TestParkingManagerSpec, should_be_able_to_park_car_directly)
 {
     std::shared_ptr<ParkingLot> parkingLot = std::make_shared<ParkingLot>(1);
 
@@ -77,7 +70,7 @@ public:
     MOCK_METHOD1(Park, bool(std::shared_ptr<Car> car));
 };
 
-TEST_F(TestParkingManagerSpec, ShouldDelegateCallToParkingBoyWhenParkCar)
+TEST_F(TestParkingManagerSpec, should_be_able_to_park_car_when_delegate_to_a_parkingboy)
 {
     std::shared_ptr<MockParkingBoy> mockParkingBoy = std::make_shared<MockParkingBoy>("DDD");
 
@@ -88,7 +81,7 @@ TEST_F(TestParkingManagerSpec, ShouldDelegateCallToParkingBoyWhenParkCar)
     parkingManager->Park(car);
 }
 
-TEST_F(TestParkingManagerSpec, ShouldParkCarOnlyOnce)
+TEST_F(TestParkingManagerSpec, should_park_car_only_once)
 {
     std::shared_ptr<MockParkingBoy> mockParkingBoy = std::make_shared<MockParkingBoy>("DDD");
     std::shared_ptr<MockParkingBoy> mockParkingBoy2 = std::make_shared<MockParkingBoy>("TTT");
