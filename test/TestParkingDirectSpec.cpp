@@ -8,14 +8,21 @@
 #include "../src/ParkingDirect.h"
 
 
-TEST_F(TestParkingDirectSpec, ShouldOutputCarListForParkingManagersAndParkingBoys)
+TEST_F(TestParkingDirectSpec, should_add_a_parking_manager_to_a_parking_director)
 {
     std::shared_ptr<ParkingManager> parkingManager = std::make_shared<ParkingManager>("ParkingManager");
-    std::shared_ptr<ParkingBoy> parkingBoy = std::make_shared<ParkingBoy>("ParkingBoy");
 
     std::shared_ptr<ParkingDirect> parkingDirect = std::make_shared<ParkingDirect>();
 
     ASSERT_TRUE(parkingDirect->Add(parkingManager));
+}
+
+TEST_F(TestParkingDirectSpec, should_add_a_parkingboy_to_a_parking_director)
+{
+    std::shared_ptr<ParkingBoy> parkingBoy = std::make_shared<ParkingBoy>("ParkingBoy");
+
+    std::shared_ptr<ParkingDirect> parkingDirect = std::make_shared<ParkingDirect>();
+
     ASSERT_TRUE(parkingDirect->Add(parkingBoy));
 }
 
@@ -28,7 +35,7 @@ const std::string expectedOutputList = "M 5 20"
         "\n\t\tP 1 2\n";
 
 
-TEST_F(TestParkingDirectSpec, ShouldVerifyOutAsExpected)
+TEST_F(TestParkingDirectSpec, should_return_as_the_example_output_data_when_request_parking_report)
 {
     std::shared_ptr<ParkingManager> parkingManager = std::make_shared<ParkingManager>("ParkingManager");
     std::shared_ptr<ParkingBoy> parkingBoy = std::make_shared<ParkingBoy>("ParkingBoy");

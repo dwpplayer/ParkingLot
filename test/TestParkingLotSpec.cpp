@@ -18,7 +18,7 @@ void TestParkingLotSpec::SetUp() {
 }
 
 
-TEST_F(TestParkingLotSpec, ShouldParkingCarWhenTheParkinglotExistSpace)
+TEST_F(TestParkingLotSpec, should_park_car_when_parkinglot_exist_pariking_space)
 {
     ParkingLot parkingLot(1, 0);
     ASSERT_TRUE(parkingLot.Park(std::make_shared<Car>("1")));
@@ -30,7 +30,7 @@ TEST_F(TestParkingLotSpec, ShouldParkingCarWhenTheParkinglotIsFull)
     ASSERT_FALSE(parkingLot.Park(std::make_shared<Car>("1")));
 }
 
-TEST_F(TestParkingLotSpec, ShouldIncrementalParkingLotNumbeWhenUnparkOneCar)
+TEST_F(TestParkingLotSpec, should_release_parking_space_when_unpark_carr)
 {
     //given
     ParkingLot parkingLot(2, 0);

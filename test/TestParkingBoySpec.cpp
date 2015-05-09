@@ -22,7 +22,7 @@ void TestParkingBoySpec::SetUp() {
     _parkingLotBoy->AddParkingLot(_parkingLotBig);
 }
 
-TEST_F(TestParkingBoySpec, ShouldAddOneMoreParkingLotForAPrkingBoy)
+TEST_F(TestParkingBoySpec, shoud_add_one_paringlot_to_a_parkingboy)
 {
     ParkingBoy parkingBoy("xxx");
     parkingBoy.AddParkingLot(_parkingLotSmall);
@@ -30,7 +30,7 @@ TEST_F(TestParkingBoySpec, ShouldAddOneMoreParkingLotForAPrkingBoy)
     ASSERT_TRUE(parkingBoy.AddParkingLot(_parkingLotBig));
 }
 
-TEST_F(TestParkingBoySpec, ShouldParkCarInMultipleParkingLotsWithSequenceOrder)
+TEST_F(TestParkingBoySpec, should_park_car_in_sequence_order_when_the_parkingboy_manage_multiple_parkinglots)
 {
     _parkingLotBoy->Park(std::make_shared<Car>("1"));
     _parkingLotBoy->Park(std::make_shared<Car>("2"));
@@ -39,7 +39,7 @@ TEST_F(TestParkingBoySpec, ShouldParkCarInMultipleParkingLotsWithSequenceOrder)
     ASSERT_TRUE(_parkingLotBig->FindCar(std::make_shared<Car>("2")));
 }
 
-TEST_F(TestParkingBoySpec, ShouldOutputParkinglotStatus)
+TEST_F(TestParkingBoySpec, should_return_output_parkinglot_status_for_a_parking_boy)
 {
     _parkingLotBoy->Park(std::make_shared<Car>("1"));
     ASSERT_EQ("B 10 11\n\tP 0 1\n\tP 10 10\n", _parkingLotBoy->ToString());

@@ -14,7 +14,7 @@ void TestSuperParkingBoySpec::TearDown() {
     Test::TearDown();
 }
 
-TEST_F(TestSuperParkingBoySpec, ShouldParkCarInTheParkinglotWithLargestSpaceRatio)
+TEST_F(TestSuperParkingBoySpec, should_park_to_the_parkinglot_with_highest_ratio_when_super_parkingboy_manage_multiple_parkinglots)
 {
     std::shared_ptr<ParkingLot> parkingLotSmall = std::make_shared<ParkingLot>(11);
     std::shared_ptr<ParkingLot> parkingLotBig = std::make_shared<ParkingLot>(10);
