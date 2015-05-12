@@ -24,7 +24,7 @@ TEST_F(TestParkingLotSpec, should_park_car_when_parkinglot_exist_pariking_space)
     ASSERT_TRUE(parkingLot.Park(std::make_shared<Car>("1")));
 }
 
-TEST_F(TestParkingLotSpec, ShouldParkingCarWhenTheParkinglotIsFull)
+TEST_F(TestParkingLotSpec, should_not_park_car_when_the_parkinginglot_is_full)
 {
     ParkingLot parkingLot(0, 0);
     ASSERT_FALSE(parkingLot.Park(std::make_shared<Car>("1")));
